@@ -10,7 +10,7 @@
         <img src="../assets/icon/icon_42.png">
       </div>
       <div class="login_box">
-        <img class="inner_logo_img" src="../assets/icon/icon_34.png">
+        <!-- <img class="inner_logo_img" src="../assets/icon/icon_34.png"> -->
         <el-input placeholder="请输入用户名" class="inner_input" v-model="loginData.loginName">
           <template slot="prepend">
             <img class="inner_input_img" src="../assets/icon/icon_25X25_1.png">
