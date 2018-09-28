@@ -1,0 +1,908 @@
+/* -------------------------------总体样式--------------------------------*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: none;
+  /* // vertical-align: baseline */
+}
+
+#app {
+  font-family: "Microsoft YaHei";
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  border: hidden;
+  overflow: auto;
+}
+
+/* -------------------------------各分辨率下的适配 采用100px rem方案--------------------------------*/
+// @media screen and (width: 1920px) {
+//   html {
+//     font-size: 100px;
+//     min-width: 100%;
+//   }
+// }
+
+// @media screen and (min-width: 1024px) {
+//   html {
+//     font-size: 53.33333333px !important;
+//   }
+// }
+
+// @media screen and (min-width: 1366px) {
+//   html {
+//     font-size: 71.14583333px !important;
+//   }
+// }
+
+// @media screen and (min-width: 1280px) {
+//   html {
+//     font-size: 66.66666667px !important;
+//   }
+// }
+
+// @media screen and (min-width: 1440px) {
+//   html {
+//     font-size: 75px !important;
+//   }
+// }
+
+// @media screen and (min-width: 1600px) {
+//   html {
+//     font-size: 83.33333333px !important
+//   }
+// }
+
+// @media screen and (min-width: 1920px) {
+//   html {
+//     font-size: 100px !important;
+//   }
+// }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Microsoft YaHei";
+}
+
+/* -------------------------------登录背景--------------------------------*/
+#indexBg {
+  background: url("../loginBg.jpg") no-repeat;
+  background-size: 100%;
+  height: 100%;
+  width: 100%;
+}
+
+/* -------------------------------混入对象--------------------------------*/
+@mixin mrpoint2rem {
+  margin-right: .2rem
+}
+
+@mixin mrpoint1rem {
+  margin-right: .1rem
+}
+
+@mixin sideBarIcon {
+  font-size: .16rem;
+  color: #ffffff;
+  width: .2rem
+}
+
+@mixin saibarP {
+  margin-bottom: .1rem;
+  width: .64rem;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+}
+
+@mixin saiderDiv {
+  border-bottom: 1px solid #2c6ca8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+/* -------------------------------登录界面--------------------------------*/
+.logo_title {
+  height: 25%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.logo_content {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+
+  // 左侧图片
+  .login_img {
+    width: 4rem;
+    margin-right: .8rem;
+
+    // background: url('../icon/icon_42.png');
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  //右侧登录框
+  .login_box {
+    flex-flow: column nowrap;
+    display: flex;
+    align-items: center;
+    width: 4rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3%;
+    position: relative;
+
+    .inner_logo_img {
+      margin-top: .2rem;
+      width: 1rem;
+    }
+
+    .inner_input {
+      width: 3rem;
+      margin-top: .2rem;
+    }
+
+    .submit_input {
+      margin-top: .2rem;
+      margin-bottom: .4rem;
+
+      div {
+        text-align: center;
+        width: 3rem;
+        height: 10%;
+        color: #ffffff;
+        background-color: #1a5fa5;
+        border-top-right-radius: 12px;
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        line-height: .3rem;
+        cursor: pointer;
+        font-size: .16rem;
+      }
+    }
+
+    .error_message_box {
+      bottom: .1rem;
+      position: absolute;
+      font-size: .14rem;
+      color: #ffffff;
+      text-align: center;
+
+      img {
+        position: relative;
+        top: 3px;
+        margin-right: .1rem;
+      }
+    }
+  }
+}
+
+.foot_info {
+  display: flex;
+  justify-content: center;
+  height: 10%;
+  color: #ffffff;
+  font-size: .12rem;
+  align-items: flex-end;
+}
+
+/* -------------------------------页面头部--------------------------------*/
+#header-box {
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  background-color: #245e95;
+  border-bottom: 1px solid #2c6ca8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .left-text {
+    margin-left: .15rem;
+    width: 4.5rem;
+    height: .4rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .user-control {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    color: #ffffff;
+    font-size: .16rem;
+
+    // height: 100%;
+    .homeIcon {
+      @include mrpoint2rem;
+      font-size: .25rem;
+    }
+
+    .avatar {
+      background: url("../icon/icon_6.png") no-repeat;
+      background-size: 100%;
+      width: .25rem;
+      height: .25rem;
+      margin-right: .1rem;
+    }
+
+    .userName,
+    .logoutBtn {
+      @include mrpoint2rem;
+      font-size: .15rem;
+    }
+
+    .logoutBtn {
+      cursor: pointer;
+    }
+  }
+}
+
+.el-footer {
+  font-size: .1rem;
+  line-height: 0.7rem;
+}
+
+// .foot_font {
+//   display: flex;
+//   font-size: .1rem;
+//   line-height: 0.8rem;
+//   justify-content: center;
+// }
+/*-------------------------------------侧边栏--------------------------------------*/
+.side-container {
+  width: auto;
+
+  .navi-box {
+    width: auto;
+
+    .slideBarClose {
+      height: 0.4rem;
+      width: auto;
+      background-color: #104a81;
+      border-bottom: 1px solid #2c6ca8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        cursor: pointer;
+        width: 0.2rem;
+        height: 0.2rem;
+      }
+    }
+
+    .slideBarOpen {
+      height: 0.4rem;
+      width: auto;
+      background-color: #104a81;
+      border-bottom: 1px solid #2c6ca8;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      img {
+        cursor: pointer;
+        width: 0.2rem;
+        height: 0.2rem;
+        margin-right: .2rem;
+      }
+    }
+
+    .naviBar {
+      width: auto;
+
+      .openClass {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #2c6ca8;
+
+        span {
+          margin-left: .2rem;
+          font-size: .12rem;
+        }
+
+        .normalStatus {
+          @include sideBarIcon;
+        }
+      }
+
+      .openSubClass {
+        >div {
+          display: flex;
+          align-items: center;
+          border-bottom: 1px solid #2c6ca8;
+
+          span {
+            margin-left: .2rem;
+            font-size: .12rem;
+          }
+
+          .normalStatus {
+            @include sideBarIcon;
+          }
+        }
+
+        >ul li ul li {
+          display: flex;
+          align-items: center;
+          border-bottom: 1px solid #2c6ca8;
+          line-height: .4rem;
+          height: .4rem;
+
+          span {
+            margin-left: .2rem;
+            font-size: .13rem;
+          }
+
+          .subicon {
+            @include sideBarIcon;
+          }
+        }
+      }
+
+      .closeClass {
+        border-bottom: 1px solid #2c6ca8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+
+        .miniStatus {
+          font-size: .14rem;
+          color: #ffffff;
+          margin-top: .1rem;
+
+          p {
+            @include saibarP;
+          }
+        }
+      }
+
+      .closeSubClass {
+        >div {
+          border-bottom: 1px solid #2c6ca8;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: auto;
+
+          .miniStatus {
+            font-size: .14rem;
+            color: #ffffff;
+            margin-top: .1rem;
+
+            p {
+              @include saibarP;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* -------------------------------elementui内部样式强制修改--------------------------------*/
+.el-submenu__title:hover {
+  background-color: #1a4b7a !important;
+}
+
+.el-tree--highlight-current .el-tree-node.is-current>.el-tree-node__content {
+  background-color: #c3c4c5 !important;
+}
+
+.el-tabs__item.is-active {
+  color: #2174b8 !important;
+  background-color: #f2f2f2 !important;
+  border-bottom-color: #2174b8 !important;
+}
+
+.el-tabs__active-bar {
+  background-color: #2174b8 !important;
+}
+
+/* .el-menu-item {
+  background-color: red !important;
+} */
+.el-submenu__icon-arrow {
+  color: #ffffff !important;
+}
+
+.el-header {
+  line-height: 0 !important;
+  padding: 0px !important;
+  border-bottom: 1px solid #2e88da !important;
+}
+
+.el-menu-item-group__title {
+  display: none;
+}
+
+.el-menu {
+  border-right: 0px !important;
+}
+
+.el-menu-item.is-active {
+  background-color: #104a81 !important;
+}
+
+.el-menu-item.is-active.is-opened {
+  background-color: red !important;
+}
+
+.el-submenu.is-active .el-submenu__title {
+  background-color: #104a81 !important;
+}
+
+.el-button--primary {
+  background-color: #2174b8 !important;
+  border-color: #2174b8 !important;
+  font-family: "Microsoft YaHei" !important;
+}
+
+.el-button--primary.is-active,
+.el-button--primary:active {
+  background: #2174b8 !important;
+  border-color: #2174b8 !important;
+}
+
+.el-submenu .el-menu-item {
+  // height: .45rem !important;
+  // line-height: .45rem !important;
+  padding: 0 .4rem !important;
+  min-width: 2rem;
+}
+
+// .el-menu-item,
+// .el-submenu__title {
+//   height: .45rem !important;
+//   line-height: .45rem !important;
+// }
+.el-input-group__append,
+.el-input-group__prepend {
+  background-color: #ffffff !important;
+}
+
+/* .el-menu-item{
+  border-top: 1px solid #2e88da;
+} */
+.el-header,
+.el-footer {
+  background-color: #ffffff;
+  color: #333;
+  text-align: center;
+  // line-height: 50px;
+}
+
+.el-aside {
+  background-color: #245e95;
+  color: #333;
+  text-align: center;
+  line-height: 200px;
+}
+
+.el-main {
+  background-color: #e9eef3;
+  color: #333;
+  text-align: center;
+}
+
+// .el-container:nth-child(5) .el-aside,
+// .el-container:nth-child(6) .el-aside {
+//   line-height: 260px;
+// }
+// .el-container:nth-child(7) .el-aside {
+//   line-height: 320px;
+// }
+.el-table th {
+  padding: 6px 0px !important;
+}
+
+.el-table td {
+  padding: 5px 0px !important;
+  font-size: 13px !important;
+}
+
+/* .el-input--small {
+  height: 31px !important;
+  line-height: 31px !important;
+} */
+.el-table th>.cell {
+  color: #333 !important;
+}
+
+.el-form-item {
+  margin-bottom: 0px !important;
+  padding-top: 1% !important;
+}
+
+.el-table thead.is-group th {
+  background: #ffffff !important;
+}
+
+/* -------------------------------404页面样式--------------------------------*/
+.err_Bg {
+  .inner_img {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 200px;
+  }
+
+  .inner_btn {
+    text-align: center;
+
+    .backBtn {
+      width: 400px;
+      color: #ffffff;
+      background-color: #ff8e3a;
+      margin-top: 20px;
+    }
+  }
+}
+
+.el-message i {
+  font-size: .1rem;
+  height: .1rem;
+  line-height: .1rem !important;
+}
+
+/* -------------------------------具体页面--------------------------------*/
+.bg_container {
+  background-color: #ffffff;
+  height: auto;
+  min-height: 100%;
+
+  .btnLine {
+    margin-top: .1rem;
+  }
+
+  .title_box {
+    width: 100%;
+    height: .3rem;
+    background-color: #226399;
+
+    .title_font {
+      font-size: .16rem;
+      float: left;
+      color: #ffffff;
+      line-height: .3rem;
+      margin-left: .3rem;
+      font-weight: 600;
+    }
+  }
+
+  @mixin titleFn {
+    font-size: .16rem;
+    float: left;
+    color: #333333;
+    font-weight: 600;
+    margin: .3rem 0rem .1rem 0rem;
+  }
+
+  @mixin outsideBox {
+    width: 96%;
+    font-size: .1rem;
+    margin: 0 auto;
+  }
+
+  .sreach_box {
+    @include outsideBox;
+
+    .sreach_box_title {
+      @include titleFn;
+    }
+
+    .sreach_box_inputline {
+      display: flex;
+      margin: .2rem 0 0 .35rem;
+      flex-wrap: wrap;
+
+      .sreach_min_box {
+        margin: 0 .15rem .15rem 0;
+        display: flex;
+        align-items: center;
+
+        .sreach_min_box_span {
+          float: left;
+          font-size: .1rem;
+          width: .8rem;
+          text-align: left;
+        }
+
+        .sreach_input {
+          width: 2rem;
+        }
+      }
+    }
+
+  }
+
+  .table_box {
+    @include outsideBox;
+    font-size: .1rem;
+
+    .table_box_title {
+      @include titleFn;
+    }
+
+    .table_min_box {
+      padding: .2rem 0rem .4rem 0rem;
+    }
+
+    .detailBtn {
+      clear: both;
+      margin: 0 0 .2rem 0;
+      float: left;
+      font-size: .1rem;
+    }
+
+    .tablePagenation {
+      background: #ffffff;
+      position: fixed;
+      bottom: .7rem;
+      right: .2rem;
+    }
+  }
+}
+
+/*---------------------------------详情页------------------------------------*/
+
+// .el-tabs__content {
+//   height: auto; //calc(100% - .55rem) !important;
+//   min-height: calc(100% - .55rem) !important;
+//   margin-bottom: .2rem;
+//   // border-left: 1px solid #333333;
+// }
+
+.detail_container {
+  font-size: .1rem;
+  height: 100%;
+
+  .el-tabs__content {
+    height: auto; //calc(100% - .55rem) !important;
+    min-height: calc(100% - .55rem) !important;
+    margin-bottom: .2rem;
+    // border-left: 1px solid #333333;
+  }
+
+  .el-tabs__nav {
+    background: #ffffff;
+  }
+
+  .tab_box {
+    height: 100%;
+
+    .el-tabs__header {
+      // height: 100vh;
+      // min-height: calc(100% - .55rem) !important;
+      margin-bottom: 0 !important;
+    }
+
+    .common_Bg {
+      height: auto;
+      background: #ffffff;
+      min-height: 7rem;
+
+      .common_title_box {
+        padding-top: .2rem;
+        width: 60%;
+        margin: 0 auto;
+        height: .2rem;
+        border-bottom: 1px solid #2174b8;
+        text-align: center;
+        margin-bottom: .2rem;
+
+        span {
+          font-weight: 600;
+          height: .36rem;
+          line-height: .36rem;
+          margin: 0 auto;
+          padding: 0 .2rem;
+          font-size: .18rem;
+          background: #fff;
+          text-align: center;
+        }
+      }
+
+      .common_title_box_min {
+        padding-top: .2rem;
+        width: 50%;
+        margin: 0 auto;
+        height: .2rem;
+        border-bottom: 1px solid #2174b8;
+        text-align: center;
+        margin-bottom: .1rem;
+
+        span {
+          font-weight: 500;
+          height: .36rem;
+          line-height: .36rem;
+          margin: 0 auto;
+          padding: 0 .2rem;
+          font-size: .16rem;
+          background: #fff;
+          text-align: center;
+        }
+      }
+
+      .common_table_box_min {
+        padding: .2rem 2rem;
+      }
+
+      .common_table_box {
+        padding: .2rem .8rem;
+      }
+    }
+
+    .contractInfo_Bg {
+      height: 100%;
+      background: #ffffff;
+
+      .tab_line {
+        height: 100%;
+
+        .el-tabs__header {
+          height: 100vh;
+          min-height: calc(100% - .55rem) !important;
+          margin-top: .3rem !important;
+        }
+
+        .tab_box {
+          padding: .2rem;
+          height: auto;
+          overflow-y: auto;
+
+          .tab1_line1 {
+            margin-top: .1rem;
+
+            &>span {
+              font-size: .14rem;
+              font-weight: 600;
+              float: left;
+            }
+
+            .rowline {
+              width: 90%;
+              border-top: 0.01rem solid #333333;
+              float: left;
+              margin: .1rem;
+            }
+
+            .tab_line_box {
+              padding-top: .1rem;
+              display: flex;
+              clear: both;
+              flex-wrap: wrap;
+
+              .tab_line_inner_box {
+                display: flex;
+                align-items: center;
+                margin: .1rem;
+
+                span {
+                  font-size: .1rem;
+                  width: 1.5rem;
+                  text-align: center;
+                }
+
+                input {
+                  width: 2rem;
+                  color: #333333;
+                  font-weight: 400;
+                }
+              }
+            }
+
+          }
+        }
+      }
+    }
+
+    .el-tabs {
+      height: 100%;
+    }
+  }
+}

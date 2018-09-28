@@ -4,15 +4,21 @@
 
 ## Build Setup
 
-``` bash
-# install dependencies
+``` bash 命令
+# 安装依赖
 npm install
 
-# serve with hot reload at localhost:8080
+# 开发环境  localhost:8099
 npm run dev
 
-# build for production with minification
+# 常规打包已经被我禁用build for production with minification
 npm run build
+
+# 打包非生产环境
+npm run build:sit
+
+#打包生产环境
+npm run build:prod
 
 # build for production and view the bundle analyzer report
 npm run build --report
