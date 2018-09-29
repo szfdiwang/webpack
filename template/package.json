@@ -5,7 +5,7 @@
   "author": "{{ author }}",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js webpack --mode development",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js webpack",
     "start": "npm run dev",
     {{#if_eq runner "jest"}}
     "unit": "jest --config test/unit/jest.conf.js --coverage",
@@ -27,7 +27,7 @@
     "build:sit": "cross-env NODE_ENV=sitEnvironment env_config=sit node build/build.js"
   },
   "dependencies": {
-    "vue": "^2.5.2"{{#router}},
+    "vue": "^2.5.17"{{#router}},
     "vue-router": "^3.0.1"{{/router}},
     "axios": "^0.18.0",
     "cross-env": "^5.2.0",
@@ -126,7 +126,6 @@
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.5.17",
     "webpack": "^3.6.0",
-    "webpack-cli": "^3.1.1",
     "webpack-bundle-analyzer": "^3.0.2",
     "webpack-dev-server": "^3.1.8",
     "webpack-merge": "^4.1.4"
