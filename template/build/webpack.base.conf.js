@@ -93,29 +93,29 @@ module.exports = {
     tls: 'empty',
     child_process: 'empty'
   },
-  optimization: {
-    runtimeChunk: {
-      name: "manifest"
-  },
-  splitChunks: {
-      cacheGroups: {
-          commons: {
-              test: /[\\/]node_modules[\\/]/,
-              name: "vendor",
-              chunks: "all"
-          }
-      }
-  },
+  // optimization: {
+  //   runtimeChunk: {
+  //     name: "manifest"
+  // },
+  // splitChunks: {
+  //     cacheGroups: {
+  //         commons: {
+  //             test: /[\\/]node_modules[\\/]/,
+  //             name: "vendor",
+  //             chunks: "all"
+  //         }
+  //     }
+  // },
 
-    minimizer: {
-      new UglifyJsPlugin({
-          uglifyOptions: {
-              compress: false
-          }
-      })
-    }
-    // minimize: false
-  },
+  //   minimizer: {
+  //     new UglifyJsPlugin({
+  //         uglifyOptions: {
+  //             compress: false
+  //         }
+  //     })
+  //   }
+  //   // minimize: false
+  // },
     //插件 jquery
     plugins: [
       // new webpack.optimize.CommonsChunkPlugin('common.js'),
