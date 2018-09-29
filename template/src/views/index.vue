@@ -26,7 +26,6 @@
 <script>
 import sideBar from "@/components/sideBar.vue";
 import headerBar from "@/components/header.vue";
-import dialogPwd from "@/components/dialogPwd.vue";
 import Bus from "../components/bus";
 export default {
   name: "index",

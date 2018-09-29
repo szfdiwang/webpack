@@ -34,7 +34,6 @@
   import {
     mapMutations
   } from "vuex";
-  import dialogPwd from "@/components/dialogPwd.vue";
   import Bus from "@/components/bus.js";
   import store from "@/vuex/index.js";
   import Api from "@/Api/index.js";
