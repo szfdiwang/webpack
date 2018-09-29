@@ -95,7 +95,7 @@ module.exports = {
     //插件 jquery
     plugins: [
       // new webpack.optimize.CommonsChunkPlugin('common.js'),
-      new webpack.optimize.UglifyJsPlugin(),
+      // new webpack.optimize.UglifyJsPlugin(),
 
       new webpack.ProvidePlugin({
         $: "jquery",
@@ -107,6 +107,7 @@ module.exports = {
     optimization:{
       splitChunks:{
         name:'common'
-      }
+      },
+      minimize:false
     }
 }
