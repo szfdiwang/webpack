@@ -3,7 +3,8 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
-var webpack = require("webpack")
+const webpack = require("webpack")
+const UglifyJsPlugin=require('uglifyjs-webpack-plugin');
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -92,11 +93,33 @@ module.exports = {
     tls: 'empty',
     child_process: 'empty'
   },
+  optimization: {
+    runtimeChunk: {
+      name: "manifest"
+  },
+  splitChunks: {
+      cacheGroups: {
+          commons: {
+              test: /[\\/]node_modules[\\/]/,
+              name: "vendor",
+              chunks: "all"
+          }
+      }
+  },
+
+    minimizer: [
+      new UglifyJsPlugin({
+          uglifyOptions: {
+              compress: false
+          }
+      })
+  ]
+    // minimize: false
+  },
     //插件 jquery
     plugins: [
       // new webpack.optimize.CommonsChunkPlugin('common.js'),
       // new webpack.optimize.UglifyJsPlugin(),
-
       new webpack.ProvidePlugin({
         $: "jquery",
         jQuery: "jquery",
@@ -104,10 +127,5 @@ module.exports = {
         "window.jQuery": "jquery"
       })
     ],
-    optimization:{
-      splitChunks:{
-        name:'common'
-      },
-      minimize:false
-    }
+
 }
