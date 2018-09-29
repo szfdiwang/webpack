@@ -19,3 +19,4 @@ selenium-debug.log
 *.ntvs*
 *.njsproj
 *.sln
+.project

@@ -7,9 +7,26 @@ import App from './App'
 {{#router}}
 import router from './router'
 {{/router}}
+import vuex from 'vuex'
+import store from './vuex/'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import 'font-awesome/css/font-awesome.min.css'
+import Loading from "@/components/loading.js"
+import "@/assets/css/common.scss"
 
-Vue.config.productionTip = false
+Vue.use(Loading);
+Vue.use(ElementUI);
+Vue.config.productionTip = false;
 
+window.onresize = setHtmlFontSize;
+
+function setHtmlFontSize() {
+  const htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
+  const htmlDom = document.getElementsByTagName('html')[0];
+  htmlDom.style.fontSize = htmlWidth / 19.2 + 'px';
+};
+setHtmlFontSize();
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -20,6 +37,8 @@ new Vue({
   render: h => h(App)
   {{/if_eq}}
   {{#if_eq build "standalone"}}
+  store,
+  vuex,
   components: { App },
   template: '<App/>'
   {{/if_eq}}
