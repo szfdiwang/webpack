@@ -107,13 +107,13 @@ module.exports = {
       }
   },
 
-    minimizer: [
+    minimizer: {
       new UglifyJsPlugin({
           uglifyOptions: {
               compress: false
           }
       })
-  ]
+    }
     // minimize: false
   },
     //插件 jquery
