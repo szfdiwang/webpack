@@ -44,17 +44,18 @@ module.exports = {
       type: 'string',
       required: false,
       message: '项目描述',
-      default: 'A Vue.js project',
+      default: 'e融所管理平台',
     },
     author: {
       when: 'isNotTest',
       type: 'string',
       message: '作者',
+      default:'wangchenchen@myerong.com',
     },
     build: {
       when: 'isNotTest',
       type: 'list',
-      message: 'Vue 生成中',
+      message: '编译+运行时选择',
       choices: [
         {
           name: 'Runtime + Compiler: recommended for most users',
@@ -77,12 +78,12 @@ module.exports = {
     lint: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Use ESLint to lint your code?我建议不装',
+      message: 'Use ESLint to lint your code',
     },
     lintConfig: {
       when: 'isNotTest && lint',
       type: 'list',
-      message: 'Pick an ESLint preset 我建议不装',
+      message: 'Pick an ESLint preset',
       choices: [
         {
           name: 'Standard (https://github.com/standard/standard)',
@@ -104,12 +105,12 @@ module.exports = {
     unit: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Set up unit tests 我建议不安装单元测试',
+      message: 'Set up unit tests',
     },
     runner: {
       when: 'isNotTest && unit',
       type: 'list',
-      message: 'Pick a test runner 我建议不安装单元测试',
+      message: 'Pick a test runner',
       choices: [
         {
           name: 'Jest',
