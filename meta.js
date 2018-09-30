@@ -37,24 +37,25 @@ module.exports = {
       when: 'isNotTest',
       type: 'string',
       required: true,
-      message: 'Project name',
+      message: '项目名称 (需要小写)',
     },
     description: {
       when: 'isNotTest',
       type: 'string',
       required: false,
-      message: 'Project description',
-      default: 'A Vue.js project',
+      message: '项目简介',
+      default: 'e融所管理平台',
     },
     author: {
       when: 'isNotTest',
       type: 'string',
-      message: 'Author',
+      message: '作者',
+      default: 'wangchenchen<wangchenchen@myerong.com>',
     },
     build: {
       when: 'isNotTest',
       type: 'list',
-      message: 'Vue build',
+      message: '编译方式',
       choices: [
         {
           name: 'Runtime + Compiler: recommended for most users',
@@ -72,12 +73,12 @@ module.exports = {
     router: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Install vue-router?',
+      message: '是否使用vue-router?',
     },
     lint: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Use ESLint to lint your code?',
+      message: 'Use ESLint to lint your code?语法检验',
     },
     lintConfig: {
       when: 'isNotTest && lint',
@@ -104,7 +105,7 @@ module.exports = {
     unit: {
       when: 'isNotTest',
       type: 'confirm',
-      message: 'Set up unit tests',
+      message: 'Set up unit tests单元测试',
     },
     runner: {
       when: 'isNotTest && unit',
@@ -137,7 +138,7 @@ module.exports = {
       when: 'isNotTest',
       type: 'list',
       message:
-        'Should we run `npm install` for you after the project has been created? (recommended)',
+        '创建项目后是否执行`npm install`来安装依赖呢? 用npm 或者yarn ',
       choices: [
         {
           name: 'Yes, use NPM',
