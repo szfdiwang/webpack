@@ -81,7 +81,6 @@
   export default {
     name: "addCustomer",
     mounted() {
-      this.initgetValueTypeSelect();
     },
     data() {
       var validatePass = (rule, value, callback) => {

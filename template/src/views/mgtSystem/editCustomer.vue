@@ -71,8 +71,6 @@ import Api from "@/Api/index";
 export default {
   name: "editCustomer",
   mounted() {
-    this.initData();
-    this.initgetValueTypeSelect();
   },
   data() {
     return {

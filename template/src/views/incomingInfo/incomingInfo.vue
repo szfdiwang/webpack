@@ -194,8 +194,6 @@ export default {
     };
   },
   mounted() {
-    this.initTable();
-    this.initLog();
   },
   computed: {},
   methods: {

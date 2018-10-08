@@ -79,9 +79,6 @@
   export default {
     name: "querySchool",
     mounted() {
-      this.initTable();
-      this.initstatusSelect();
-      this.initLog();
     },
     created() {},
     data() {

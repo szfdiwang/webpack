@@ -81,8 +81,6 @@ import Api from "@/Api/index";
 export default {
   name: "userLogMgt",
   mounted() {
-    this.initTable();
-    this.initstatusSelect();
   },
   created() {},
   data() {

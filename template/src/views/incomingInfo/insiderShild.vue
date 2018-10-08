@@ -229,10 +229,6 @@ export default {
     };
   },
   mounted() {
-    this.showMyMoney();
-    this.initShildData();
-    this.initZhiMaData();
-    this.initFahaiData();
   },
   computed: {},
   methods: {

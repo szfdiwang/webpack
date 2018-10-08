@@ -106,8 +106,6 @@
   export default {
     name: "userMgt",
     mounted() {
-      this.initTable();
-      this.initstatusSelect();
     },
     created() {},
     data() {

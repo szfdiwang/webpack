@@ -113,6 +113,10 @@ export default {
       }
     },
     getUserInfo() {
+      this.$router.push({
+        name: "index"
+      });
+
       this.coverShow = true;
       let data = {};
       data.operId = data.loginId = this.loginData.loginName;

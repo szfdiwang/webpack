@@ -484,7 +484,6 @@ export default {
     };
   },
   mounted() {
-    this.initBase();
   },
   computed: {
     contractNo: {
