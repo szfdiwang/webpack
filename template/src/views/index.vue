@@ -20,13 +20,11 @@
         </el-footer>
       </el-container>
     </el-container>
-     <dialog-pwd :showDialog="showDialog" @close="close"></dialog-pwd>
   </el-container>
 </template>
 <script>
 import sideBar from "@/components/sideBar.vue";
 import headerBar from "@/components/header.vue";
-import dialogPwd from "@/components/dialogPwd.vue";
 import Bus from "../components/bus";
 export default {
   name: "index",
@@ -49,7 +47,6 @@ export default {
   components: {
     sideBar,
     headerBar,
-    dialogPwd
   }
 };
 </script>

@@ -86,24 +86,6 @@ export default {
   },
   computed: {
     roleStatus: function() {
-      let roleStatus = {
-        a: false,
-        b: false,
-        c: false
-      };
-      if (sessionStorage.roleId.indexOf("admin") > -1) {
-        return (roleStatus = {
-          a: true,
-          b: true,
-          c: true
-        });
-      } else if (sessionStorage.roleId.indexOf("JX001") > -1) {
-        roleStatus.b = true;
-        return roleStatus;
-      } else if (sessionStorage.roleId.indexOf("DB001") > -1) {
-        roleStatus.a = true;
-        return roleStatus;
-      }
     }
   },
   mounted() {

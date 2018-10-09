@@ -8,7 +8,6 @@ Vue.use(Router)
 //登录
 const login = r => require.ensure([], () => r(require('@/components/login')), 'login');
 //首页
-const home = r => require.ensure([], () => r(require('@/components/homePage')), 'home');
 const index = r => require.ensure([], () => r(require('@/views/index')), 'index');
 const incomingInfo = r => require.ensure([], () => r(require('@/views/incomingInfo/incomingInfo')), 'incomingInfo');
 const querySchool = r => require.ensure([], () => r(require('@/views/querySchool/querySchool')), 'querySchool')
