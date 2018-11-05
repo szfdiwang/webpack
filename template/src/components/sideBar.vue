@@ -8,19 +8,19 @@
         <!-- background-color="#245e95" -->
         <el-menu router @open="handleOpen" @close="handleClose" background-color="#245e95"  text-color="#fff"
           active-text-color="#e89029" :collapse="isCollapse" :default-active="$route.meta.num">
-          <el-menu-item v-if="roleStatus.a" :class="{'openClass':!isCollapse,'closeClass':isCollapse}" index="/incomingInfo">
+          <el-menu-item :class="{'openClass':!isCollapse,'closeClass':isCollapse}" index="/incomingInfo">
             <i :class="{'fa fa-bar-chart normalStatus':!isCollapse,'fa fa-bar-chart miniStatus':isCollapse}">
               <p v-if="isCollapse" class="title_font">进件信息查询</p>
             </i>
             <span v-if="!isCollapse" slot="title">进件信息查询</span>
           </el-menu-item>
-          <el-menu-item v-if="roleStatus.b" :class="{'openClass':!isCollapse,'closeClass':isCollapse}" index="/querySchool">
+          <el-menu-item :class="{'openClass':!isCollapse,'closeClass':isCollapse}" index="/querySchool">
             <i :class="{'fa fa-car normalStatus':!isCollapse,'fa fa-car miniStatus':isCollapse}">
               <p v-if="isCollapse" class="title_font">驾校查询</p>
             </i>
             <span v-if="!isCollapse" slot="title">驾校查询</span>
           </el-menu-item>
-          <el-submenu v-if="roleStatus.c" :class="{'openSubClass':!isCollapse,'closeSubClass':isCollapse}" index="/mgtSystem">
+          <el-submenu :class="{'openSubClass':!isCollapse,'closeSubClass':isCollapse}" index="/mgtSystem">
             <template slot="title">
               <i :class="{'fa fa-wrench normalStatus':!isCollapse,'fa fa-wrench miniStatus':isCollapse}">
                 <p v-if="isCollapse" class="title_font">系统管理</p>
