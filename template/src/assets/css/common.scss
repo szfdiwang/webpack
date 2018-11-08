@@ -100,6 +100,58 @@ video {
   overflow: auto;
 }
 
+.finger {
+  cursor: pointer;
+}
+
+.ml20 {
+  margin-left: .2rem;
+}
+
+.ml10 {
+  margin-left: .1rem;
+}
+
+.ml5 {
+  margin-left: .05rem;
+}
+
+.pl20 {
+  padding-left: .2rem;
+}
+
+.pl10 {
+  padding-left: .1rem;
+}
+
+.pl5 {
+  padding-left: .05rem;
+}
+
+.mr20 {
+  margin-right: .2rem;
+}
+
+.mr10 {
+  margin-right: .1rem;
+}
+
+.mr5 {
+  margin-right: .05rem;
+}
+
+.pr20 {
+  padding-right: .2rem;
+}
+
+.pr10 {
+  padding-right: .1rem;
+}
+
+.pr5 {
+  padding-right: .05rem;
+}
+
 /* -------------------------------各分辨率下的适配 采用100px rem方案--------------------------------*/
 // @media screen and (width: 1920px) {
 //   html {
@@ -299,12 +351,9 @@ body {
 
   .left-text {
     margin-left: .15rem;
-    width: 4.5rem;
-    height: .4rem;
 
     img {
       width: 100%;
-      height: 100%;
     }
   }
 
@@ -318,6 +367,7 @@ body {
     // height: 100%;
     .homeIcon {
       @include mrpoint2rem;
+      margin-right: .1rem;
       font-size: .25rem;
     }
 
@@ -399,6 +449,7 @@ body {
         display: flex;
         align-items: center;
         border-bottom: 1px solid #2c6ca8;
+        min-width: 2rem;
 
         span {
           margin-left: .2rem;
@@ -486,8 +537,19 @@ body {
 }
 
 /* -------------------------------elementui内部样式强制修改--------------------------------*/
+.el-table .cell,
+.el-table th div,
+.el-table--border td:first-child .cell,
+.el-table--border th:first-child .cell {
+  padding-left: .2rem;
+}
+
 .el-submenu__title:hover {
   background-color: #1a4b7a !important;
+}
+
+.el-radio__inner {
+  border: 0.01rem solid #b6b2b2;
 }
 
 .el-tree--highlight-current .el-tree-node.is-current>.el-tree-node__content {
@@ -504,9 +566,6 @@ body {
   background-color: #2174b8 !important;
 }
 
-/* .el-menu-item {
-  background-color: red !important;
-} */
 .el-submenu__icon-arrow {
   color: #ffffff !important;
 }
@@ -550,31 +609,20 @@ body {
 }
 
 .el-submenu .el-menu-item {
-  // height: .45rem !important;
-  // line-height: .45rem !important;
   padding: 0 .4rem !important;
   min-width: 2rem;
 }
 
-// .el-menu-item,
-// .el-submenu__title {
-//   height: .45rem !important;
-//   line-height: .45rem !important;
-// }
 .el-input-group__append,
 .el-input-group__prepend {
   background-color: #ffffff !important;
 }
 
-/* .el-menu-item{
-  border-top: 1px solid #2e88da;
-} */
 .el-header,
 .el-footer {
   background-color: #ffffff;
   color: #333;
   text-align: center;
-  // line-height: 50px;
 }
 
 .el-aside {
@@ -590,13 +638,6 @@ body {
   text-align: center;
 }
 
-// .el-container:nth-child(5) .el-aside,
-// .el-container:nth-child(6) .el-aside {
-//   line-height: 260px;
-// }
-// .el-container:nth-child(7) .el-aside {
-//   line-height: 320px;
-// }
 .el-table th {
   padding: 6px 0px !important;
 }
@@ -623,6 +664,13 @@ body {
   background: #ffffff !important;
 }
 
+.el-input.is-disabled .el-input__inner {
+  color: #333333;
+}
+
+// .el-radio__label{
+//   display:none ;
+// }
 /* -------------------------------404页面样式--------------------------------*/
 .err_Bg {
   .inner_img {
@@ -665,7 +713,7 @@ body {
     background-color: #226399;
 
     .title_font {
-      font-size: .16rem;
+      font-size: 16px;
       float: left;
       color: #ffffff;
       line-height: .3rem;
@@ -684,7 +732,7 @@ body {
 
   @mixin outsideBox {
     width: 96%;
-    font-size: .1rem;
+    font-size: 14px;
     margin: 0 auto;
   }
 
@@ -697,8 +745,17 @@ body {
 
     .sreach_box_inputline {
       display: flex;
-      margin: .2rem 0 0 .35rem;
+      margin: .2rem 0 0 .2rem;
       flex-wrap: wrap;
+
+      .checkbox {
+        display: flex;
+        align-items: center;
+      }
+
+      .checkGroup {
+        margin: .2rem 0 .2rem .4rem;
+      }
 
       .sreach_min_box {
         margin: 0 .15rem .15rem 0;
@@ -707,7 +764,7 @@ body {
 
         .sreach_min_box_span {
           float: left;
-          font-size: .1rem;
+          font-size: 14px;
           width: .8rem;
           text-align: left;
         }
@@ -722,7 +779,7 @@ body {
 
   .table_box {
     @include outsideBox;
-    font-size: .1rem;
+    font-size: 14px;
 
     .table_box_title {
       @include titleFn;
@@ -736,7 +793,7 @@ body {
       clear: both;
       margin: 0 0 .2rem 0;
       float: left;
-      font-size: .1rem;
+      font-size: 14px;
     }
 
     .tablePagenation {
@@ -744,6 +801,63 @@ body {
       position: fixed;
       bottom: .7rem;
       right: .2rem;
+    }
+  }
+
+  .dialog_box {
+    .el-dialog {
+      border-radius: 10px !important;
+    }
+
+    .el-dialog__header {
+      border-top-left-radius: 8px !important;
+      border-top-right-radius: 8px !important;
+      padding: 5px .1rem;
+      background: #226399;
+
+      span {
+        color: #ffffff;
+      }
+
+      i {
+        color: #ffffff;
+      }
+    }
+
+    .el-dialog__headerbtn {
+      top: .1rem;
+    }
+
+    .el-dialog__body {
+      padding: .1rem .1rem .1rem
+    }
+
+    .el-form-item__content {
+      flex: 1;
+    }
+
+    .form_select {
+      width: 3rem;
+    }
+
+    .form_footer {
+      display: flex;
+      text-align: center;
+      margin-top: .5rem;
+      justify-content: center;
+    }
+
+    .dialog_content {
+      display: flex;
+      justify-content: center;
+    }
+
+    .dialog_input {
+      width: 2rem;
+    }
+
+    .dialog_pagenation {
+      float: right;
     }
   }
 }

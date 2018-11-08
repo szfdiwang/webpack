@@ -8,22 +8,21 @@ import {
 import router from '@/router/index'
 axios.defaults.timeout = 50000;
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
-let url = "";
 
 //环境判断
-if (process.env && process.env.NODE_ENV == "production") {
-  url = "http://api.myerong.com/asssets/inner/"; //生产
-} else if (process.env && process.env.NODE_ENV == "sitEnvironment") {
-  url = "/asssets/inner/"; //测试
-} else if (process.env && process.env.NODE_ENV == "development") {
-  url = "/apis"; //开发
-}
+// if (process.env && process.env.NODE_ENV == "production") {
+//   url = "http://api.myerong.com/asssets/inner/"; //生产
+// } else if (process.env && process.env.NODE_ENV == "sitEnvironment") {
+//   url = "/asssets/inner/"; //测试
+// } else if (process.env && process.env.NODE_ENV == "development") {
+//   url = "/apis"; //开发
+// }
 
 console.log(process.env);
-axios.defaults.baseURL = url;
+axios.defaults.baseURL = process.env.BASEURL;
 axios.interceptors.request.use(config => {
   if (config.url.indexOf("oauth/token") >= 0) {
-    config.headers.Authorization = `Basic ZXJvbmdfMTAwMDIwMDE6MDdhODYxNzUyMGQwNDJmOTk0YTViZGJlNTRmNGI4ZjY=`
+    config.headers.Authorization = process.env.BASIC; //`Basic ZXJvbmdfMTAwMDIwMDE6MDdhODYxNzUyMGQwNDJmOTk0YTViZGJlNTRmNGI4ZjY=`
   } else {
     if (process.env && process.env.NODE_ENV != "development") {
       config.baseURL = config.baseURL + "erong-cfss-pbes/";
