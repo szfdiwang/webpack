@@ -12,22 +12,15 @@ import {
 import router from '@/router/index'
 
 let yourProjectPath = ""; //类似"erong-cfss-pbes/"
-let url = "";
+
 axios.defaults.timeout = 50000;
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
-//环境判断
-if (process.env && process.env.NODE_ENV == "production") {
-  url = "http://api.myerong.com/asssets/inner/"; //生产
-} else if (process.env && process.env.NODE_ENV == "sitEnvironment") {
-  url = "/asssets/inner/"; //测试
-} else if (process.env && process.env.NODE_ENV == "development") {
-  url = "/apis"; //开发
-}
+
 console.log(process.env);
-axios.defaults.baseURL = url;
+axios.defaults.baseURL = process.env.BASEURL;
 axios.interceptors.request.use(config => {
   if (config.url.indexOf("oauth/token") >= 0) {
-    config.headers.Authorization = `Basic ZXJvbmdfMTAwMDIwMDE6MDdhODYxNzUyMGQwNDJmOTk0YTViZGJlNTRmNGI4ZjY=`
+    config.headers.Authorization = process.env.BASIC//各环境下网关的不同Basic
   } else {
     if (process.env && process.env.NODE_ENV != "development") {
       config.baseURL = config.baseURL + yourProjectPath; //此处根据不同项目切换

@@ -3,7 +3,7 @@
  * 请求范例
  */
 import axios from "@/utils/request"
-const Api = {
+const appApi = {
   userLogin(data) {
     return axios({
       method: "post",
@@ -37,4 +37,6 @@ const Api = {
   },
 }
 
-export default Api
+export default {
+  appApi
+}
